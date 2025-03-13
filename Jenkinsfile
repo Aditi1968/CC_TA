@@ -3,18 +3,30 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building project...'
+                script {
+                    sh 'g++ hello.cpp -o hello_exec'  // Removed "main/"
+                }
             }
         }
+
         stage('Test') {
             steps {
-                echo 'Testing project...'
+                script {
+                    sh './hello_exec'  // Removed "main/"
+                }
             }
         }
+
         stage('Deploy') {
             steps {
-                echo 'Deploying project...'
+                echo 'Deploying Application...'
             }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Pipeline Failed'
         }
     }
 }
