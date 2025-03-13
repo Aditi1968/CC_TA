@@ -3,33 +3,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    sh 'g++ hello.cpp -o hello_exec'
-                }
+                echo 'Building project...'
             }
         }
-
         stage('Test') {
             steps {
-                script {
-                    // Intentional error: Command 'exit 1' forces failure
-                    sh 'exit 1'
-                }
+                echo 'Testing project...'
             }
         }
-
         stage('Deploy') {
             steps {
-                echo 'Deploying Application...'
+                echo 'Deploying project...'
             }
-        }
-    }
-
-    post {
-        failure {
-            echo 'Pipeline Failed'
         }
     }
 }
-
-
