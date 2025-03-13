@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ hello.cpp -o hello_exec'  // Remove "main/"
+                    sh 'g++ hello.cpp -o hello_exec'
                 }
             }
         }
@@ -12,7 +12,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './hello_exec'  // Remove "main/"
+                    // Intentional error: Command 'exit 1' forces failure
+                    sh 'exit 1'
                 }
             }
         }
@@ -30,4 +31,5 @@ pipeline {
         }
     }
 }
+
 
