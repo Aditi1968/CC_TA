@@ -1,11 +1,10 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ main/hello.cpp -o main/hello_exec'
+                    sh 'g++ hello.cpp -o hello_exec'  // Remove "main/"
                 }
             }
         }
@@ -13,7 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './main/hello_exec'
+                    sh './hello_exec'  // Remove "main/"
                 }
             }
         }
@@ -31,3 +30,4 @@ pipeline {
         }
     }
 }
+
