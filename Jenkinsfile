@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ hello.cpp -o hello_exec'  // Removed "main/"
+                    sh 'g++ helllo.cpp -o hello_exec'  // Removed "main/"
                 }
             }
         }
